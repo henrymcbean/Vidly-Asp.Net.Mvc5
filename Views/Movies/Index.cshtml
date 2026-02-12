@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Vidly_Asp.Net.Mvc5.Models.Movie>
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table id="movies" class="table table-bordered table-hover">
+	<thead>
+	<tr>
+		<td>Movie</td>
+		<td>Genre</td>
+		<td></td>
+	</tr>
+	</thead>
+	<tbody>
+		@foreach (var movie in Model)
+		{
+			<tr>
+				<td>@Html.ActionLink(movie.Name, "Details", "Movies", new {id = movie.Id}, null)</td>
+				<td>@movie.Genre.Name</td>
+			</tr>
+		}
+	</tbody>
+</table>
