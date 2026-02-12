@@ -31,13 +31,16 @@ namespace Vidly_Asp.Net.Mvc5.Controllers
         [HttpPost]
         public ActionResult Create(Customer customer)
         {
-            return Content("");
+            _context.Customers.Add(customer);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Customers");
         }
 
+        [HttpGet]
         public ActionResult Index()
         {
             var customers = _context.Customers.Include(c => c.MembershipType).ToList();
-
             return View(customers);
         }
         public ActionResult Details(int id)
