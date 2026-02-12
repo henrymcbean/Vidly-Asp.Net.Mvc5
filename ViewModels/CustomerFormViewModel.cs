@@ -6,7 +6,7 @@ using Vidly_Asp.Net.Mvc5.Models;
 
 namespace Vidly_Asp.Net.Mvc5.ViewModels
 {
-    public class NewCustomerViewModel
+    public class CustomerFormViewModel
     {
         public IEnumerable<MembershipType> MembershipTypes { get; set; }
         public Customer Customer { get; set; }
