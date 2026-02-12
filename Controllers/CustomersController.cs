@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Vidly_Asp.Net.Mvc5.Models;
+using Vidly_Asp.Net.Mvc5.ViewModels;
 
 namespace Vidly_Asp.Net.Mvc5.Controllers
 {
@@ -27,7 +28,8 @@ namespace Vidly_Asp.Net.Mvc5.Controllers
             return View(viewModel);
         }
 
-        public ActionResult Create()
+        [HttpPost]
+        public ActionResult Create(Customer customer)
         {
             return Content("");
         }
