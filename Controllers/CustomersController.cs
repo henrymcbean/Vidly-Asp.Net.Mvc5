@@ -10,12 +10,7 @@ namespace Vidly_Asp.Net.Mvc5.Controllers
 {
     public class CustomersController : Controller
     {
-        private ApplicationDbContext _context;
-
-        public CustomersController()
-        {
-            _context = new ApplicationDbContext();
-        }
+        private readonly ApplicationDbContext _context = new ApplicationDbContext();
 
         protected override void Dispose(bool disposing)
         {
