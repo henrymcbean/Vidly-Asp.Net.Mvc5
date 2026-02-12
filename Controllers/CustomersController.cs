@@ -19,7 +19,12 @@ namespace Vidly_Asp.Net.Mvc5.Controllers
 
         public ActionResult New()
         {
-            return View();
+            var viewModel = new Vidly_Asp.Net.Mvc5.ViewModels.NewCustomerViewModel
+            {
+                MembershipTypes = _context.MembershipTypes.ToList()
+            };
+            
+            return View(viewModel);
         }
 
         public ActionResult Create()
