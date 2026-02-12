@@ -17,7 +17,17 @@ namespace Vidly_Asp.Net.Mvc5.Controllers
             _context.Dispose();
         }
 
-        public ViewResult Index()
+        public ActionResult New()
+        {
+            return View();
+        }
+
+        public ActionResult Create()
+        {
+            return Content("");
+        }
+
+        public ActionResult Index()
         {
             var customers = _context.Customers.Include(c => c.MembershipType).ToList();
 
