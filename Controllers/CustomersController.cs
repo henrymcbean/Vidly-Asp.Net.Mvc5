@@ -30,6 +30,7 @@ namespace Vidly_Asp.Net.Mvc5.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
             if (!ModelState.IsValid)
