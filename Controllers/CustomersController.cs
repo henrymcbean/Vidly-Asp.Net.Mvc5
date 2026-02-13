@@ -22,6 +22,7 @@ namespace Vidly_Asp.Net.Mvc5.Controllers
         {
             var viewModel = new CustomerFormViewModel
             {
+                Customer = new Customer(),
                 MembershipTypes = _context.MembershipTypes.ToList()
             };
             
