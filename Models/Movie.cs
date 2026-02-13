@@ -16,6 +16,7 @@ namespace Vidly_Asp.Net.Mvc5.Models
 
         public Genre Genre { get; set; }
 
+        [Required]
         [Display(Name = "Genre")]
         public byte GenreId { get; set; }
 
