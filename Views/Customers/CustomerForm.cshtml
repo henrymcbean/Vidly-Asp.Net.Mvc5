@@ -33,6 +33,7 @@ else
     <div class="form-group">
         @Html.LabelFor(m => m.Customer.MembershipTypeId)
         @Html.DropDownListFor(m => m.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "Select Membership Type", new { @class = "form-control form-select my-1" })
+        @Html.ValidationMessageFor(m => m.Customer.MembershipTypeId)
     </div>
     @Html.HiddenFor(m => m.Customer.Id)
     <button type="submit" class="btn btn-primary mt-2">Save</button>
