@@ -18,7 +18,7 @@ namespace Vidly_Asp.Net.Mvc5.Dto
 
         public byte MembershipTypeId { get; set; }
 
-        [Min18YearsIfAMember]
+        // [Min18YearsIfAMember]
         public DateTime? Birthdate { get; set; }
     }
 }
