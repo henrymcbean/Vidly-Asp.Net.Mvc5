@@ -15,6 +15,7 @@ namespace Vidly_Asp.Net.Mvc5.App_Start
             Mapper.CreateMap<Customer, CustomerDto>();
             Mapper.CreateMap<CustomerDto, Customer>()
                 .ForMember(dto => dto.Id, opt => opt.Ignore());
+            Mapper.CreateMap<MembershipType, MembershipTypeDto>();
 
             Mapper.CreateMap<Movie, MovieDto>();
             Mapper.CreateMap<MovieDto, Movie>()
