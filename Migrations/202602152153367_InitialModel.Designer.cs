@@ -7,13 +7,13 @@ namespace Vidly_Asp.Net.Mvc5.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class Genre : IMigrationMetadata
+    public sealed partial class InitialModel : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Genre));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialModel));
         
         string IMigrationMetadata.Id
         {
-            get { return "202602121751188_Genre"; }
+            get { return "202602152153367_InitialModel"; }
         }
         
         string IMigrationMetadata.Source
