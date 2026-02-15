@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
-using AutoMapper;
 using Vidly_Asp.Net.Mvc5.Dto;
 using Vidly_Asp.Net.Mvc5.Models;
+using static AutoMapper.Mapper;
 
 namespace Vidly_Asp.Net.Mvc5.Controllers.Api
 {
@@ -18,7 +15,7 @@ namespace Vidly_Asp.Net.Mvc5.Controllers.Api
         // GET /api/movies
         public IEnumerable<MovieDto> GetMovies()
         {
-            return _context.Movies.ToList().Select(Mapper.Map<Movie, MovieDto>);
+            return _context.Movies.ToList().Select(Map<Movie, MovieDto>);
         }
 
         // GET /api/movies/1
@@ -30,7 +27,7 @@ namespace Vidly_Asp.Net.Mvc5.Controllers.Api
             if (movie == null)
                 NotFound();
 
-            return Ok(Mapper.Map<Movie, MovieDto>(movie));
+            return Ok(Map<Movie, MovieDto>(movie));
         }
 
         // POST /api/movies
@@ -40,7 +37,7 @@ namespace Vidly_Asp.Net.Mvc5.Controllers.Api
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            var movie = Mapper.Map<MovieDto, Movie>(movieDto);
+            var movie = Map<MovieDto, Movie>(movieDto);
             _context.Movies.Add(movie);
             _context.SaveChanges();
 
@@ -51,7 +48,7 @@ namespace Vidly_Asp.Net.Mvc5.Controllers.Api
 
         // PUT /api/movies
         [HttpPut]
-        public void UpdateMovie(int id, Movie movieDto)
+        public void UpdateMovie(int id, MovieDto movieDto)
         {
             if (!ModelState.IsValid)
                 BadRequest();
@@ -59,21 +56,11 @@ namespace Vidly_Asp.Net.Mvc5.Controllers.Api
             var movieInDb = _context.Movies.SingleOrDefault(m => m.Id == id);
 
             if (movieInDb == null)
-            {
                 NotFound();
-            }
-            else
-            {
-                //movieInDb.Name = movieDto.Name;
-                //movieInDb.GenreId = movieDto.GenreId;
-                //movieInDb.DateAdded = movieDto.DateAdded;
-                //movieInDb.ReleaseDate = movieDto.ReleaseDate;
-                //movieInDb.NumberInStock = movieDto.NumberInStock;
 
-                Mapper.Map(movieDto, movieInDb);
+            Map(movieDto, movieInDb);
 
-                _context.SaveChanges();
-            }
+            _context.SaveChanges();
         }
 
         // DELETE /api/movies/1
