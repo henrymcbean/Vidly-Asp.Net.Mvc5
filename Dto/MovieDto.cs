@@ -19,6 +19,8 @@ namespace Vidly_Asp.Net.Mvc5.Dto
         [Display(Name = "Genre")]
         public byte GenreId { get; set; }
 
+        public GenreDto Genre { get; set; } 
+
         [Required]
         public DateTime DateAdded { get; set; }
 

@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Data.Entity;
 using Vidly_Asp.Net.Mvc5.Dto;
 using Vidly_Asp.Net.Mvc5.Models;
-using static AutoMapper.Mapper;
+using AutoMapper;
 
 namespace Vidly_Asp.Net.Mvc5.Controllers.Api
 {
@@ -15,7 +16,7 @@ namespace Vidly_Asp.Net.Mvc5.Controllers.Api
         // GET /api/movies
         public IEnumerable<MovieDto> GetMovies()
         {
-            return _context.Movies.ToList().Select(Map<Movie, MovieDto>);
+            return _context.Movies.Include(m => m.Genre).ToList().Select(Mapper.Map<Movie, MovieDto>);
         }
 
         // GET /api/movies/1
@@ -27,7 +28,7 @@ namespace Vidly_Asp.Net.Mvc5.Controllers.Api
             if (movie == null)
                 NotFound();
 
-            return Ok(Map<Movie, MovieDto>(movie));
+            return Ok(Mapper.Map<Movie, MovieDto>(movie));
         }
 
         // POST /api/movies
@@ -37,7 +38,7 @@ namespace Vidly_Asp.Net.Mvc5.Controllers.Api
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            var movie = Map<MovieDto, Movie>(movieDto);
+            var movie = Mapper.Map<MovieDto, Movie>(movieDto);
             _context.Movies.Add(movie);
             _context.SaveChanges();
 
@@ -58,7 +59,7 @@ namespace Vidly_Asp.Net.Mvc5.Controllers.Api
             if (movieInDb == null)
                 NotFound();
 
-            Map(movieDto, movieInDb);
+            Mapper.Map(movieDto, movieInDb);
 
             _context.SaveChanges();
         }

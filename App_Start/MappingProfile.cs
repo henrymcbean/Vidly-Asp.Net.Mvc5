@@ -20,6 +20,7 @@ namespace Vidly_Asp.Net.Mvc5.App_Start
             Mapper.CreateMap<Movie, MovieDto>();
             Mapper.CreateMap<MovieDto, Movie>()
                 .ForMember(dto => dto.Id, opt => opt.Ignore());
+            Mapper.CreateMap<Genre, GenreDto>();
         }
     }
 }
