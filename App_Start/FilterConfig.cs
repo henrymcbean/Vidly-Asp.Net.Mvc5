@@ -8,6 +8,7 @@ namespace Vidly_Asp.Net.Mvc5
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new AuthorizeAttribute());
         }
     }
 }
