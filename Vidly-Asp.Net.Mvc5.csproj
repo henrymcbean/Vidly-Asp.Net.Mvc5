@@ -331,10 +331,13 @@
     <Compile Include="Migrations\202602181200313_AddRental.Designer.cs">
       <DependentUpon>202602181200313_AddRental.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Migrations\202602181344448_AddNumberAvailableToMovie.cs" />
     <Compile Include="Migrations\202602181344448_AddNumberAvailableToMovie.Designer.cs">
       <DependentUpon>202602181344448_AddNumberAvailableToMovie.cs</DependentUpon>
     </Compile>
+=======
+>>>>>>> ba04a19a3ca7e6f0b378080f823e6510e32a4066
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -692,9 +695,12 @@
     <EmbeddedResource Include="Migrations\202602181200313_AddRental.resx">
       <DependentUpon>202602181200313_AddRental.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="Migrations\202602181344448_AddNumberAvailableToMovie.resx">
       <DependentUpon>202602181344448_AddNumberAvailableToMovie.cs</DependentUpon>
     </EmbeddedResource>
+=======
+>>>>>>> ba04a19a3ca7e6f0b378080f823e6510e32a4066
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

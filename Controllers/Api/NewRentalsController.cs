@@ -18,6 +18,7 @@ namespace Vidly_Asp.Net.Mvc5.Controllers.Api
         {
             var customer = _context.Customers.Single(c => c.Id == newRental.CustomerId);
 
+<<<<<<< HEAD
             var movies = _context.Movies.Where(m => newRental.MovieId.Contains(m.Id)).ToList();
 
             foreach (var movie in movies)
@@ -27,6 +28,12 @@ namespace Vidly_Asp.Net.Mvc5.Controllers.Api
 
                 movie.NumberInStock--;
 
+=======
+            var movies = _context.Movies.Where(m => newRental.MovieId.Contains(m.Id));
+
+            foreach (var movie in movies)
+            {
+>>>>>>> ba04a19a3ca7e6f0b378080f823e6510e32a4066
                 var rental = new Rental
                 {
                     Customer = customer,
