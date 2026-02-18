@@ -16,18 +16,9 @@ namespace Vidly_Asp.Net.Mvc5.Controllers.Api
         [HttpPost]
         public IHttpActionResult CreateNewRentals(NewRentalDto newRental)
         {
-            var customer = _context.Customers.SingleOrDefault(c => c.Id == newRental.CustomerId);
-
-            if (newRental.MovieId.Count == 0)
-                return BadRequest("No Movies Id's have been given.");
-
-            if (customer == null)
-                return BadRequest("CustomerID is not Valid.");
+            var customer = _context.Customers.Single(c => c.Id == newRental.CustomerId);
 
             var movies = _context.Movies.Where(m => newRental.MovieId.Contains(m.Id)).ToList();
-
-            if (movies.Count != newRental.MovieId.Count)
-                return BadRequest("One oe or more MovieIds are invalid");
 
             foreach (var movie in movies)
             {
